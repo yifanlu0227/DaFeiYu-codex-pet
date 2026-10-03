@@ -4,27 +4,36 @@
 
 蓝发蓝眼的 Q 版小鲸鱼女仆宠物，包含 **9 组动作和 16 个视线方向**，可用于支持 Pets 的 ChatGPT / Codex 客户端。
 
-## 安装到桌面端
+## 让 Codex 安装
 
-使用支持 Pets 安装功能的桌面客户端，在浏览器地址栏粘贴下面的完整链接，按客户端提示完成安装，然后在 Pets 设置中选择「蓝色大肥鱼」。
+把下面这句话发给 Codex，让 agent 访问仓库并完成安装：
 
-```text
-codex://pets/install?name=%E8%93%9D%E8%89%B2%E5%A4%A7%E8%82%A5%E9%B1%BC&imageUrl=https%3A%2F%2Fraw.githubusercontent.com%2Fyifanlu0227%2FDaFeiYu-codex-pet%2Fmain%2Fspritesheet.png&description=%E8%93%9D%E5%8F%91%E8%93%9D%E7%9C%BC%E7%9A%84Q%E7%89%88%E5%B0%8F%E9%B2%B8%E9%B1%BC%E5%A5%B3%E4%BB%86%EF%BC%8C%E7%A9%BF%E7%9D%80%E6%B7%B1%E8%93%9D%E7%99%BD%E8%89%B2%E5%A5%B3%E4%BB%86%E8%A3%99%EF%BC%8C%E5%B8%A6%E7%9D%80%E8%93%AC%E6%9D%BE%E9%95%BF%E5%8F%91%E5%92%8C%E5%8F%AF%E7%88%B1%E7%9A%84%E9%B2%B8%E9%B1%BC%E5%B0%BE%E5%B7%B4%E3%80%82&spriteVersionNumber=2
-```
+> 请访问 https://github.com/yifanlu0227/DaFeiYu-codex-pet ，读取 README 和 pet.json，使用当前环境可用的宠物 skill，将仓库中已完成的 spritesheet.png 安装为我的宠物「蓝色大肥鱼」并启用。请直接使用现有图集，自动下载、验证、安装并检查结果。
 
-[查看并复制安装链接](install-link.txt) · [下载透明动画图集](https://raw.githubusercontent.com/yifanlu0227/DaFeiYu-codex-pet/main/spritesheet.png)
+## 给安装 agent 的说明
 
-安装链接遵循[官方桌面安装链接格式](https://learn.chatgpt.com/docs/reference/commands#pets)，指定了 `spriteVersionNumber=2`。请复制完整地址到浏览器地址栏。功能可用性取决于客户端版本和工作区设置。
+这是一个已经制作完成的 **v2 宠物动画图集**。安装素材在仓库根目录，名称、描述和校验值以 `pet.json` 为准。请下载素材到你的工作目录，由 agent 完成导入和启用；用户不需要手动下载、上传图片或到设置中选择宠物。
 
-## 使用 Pets 插件导入
+### 素材位置
 
-1. 下载上面的 `spritesheet.png`。
-2. 将图集附到支持 Pets 插件的聊天中。
-3. 发送：
+| 文件 | 用途 | 原始文件地址 |
+| --- | --- | --- |
+| `spritesheet.png` | **安装用图集**，透明 PNG，包含全部动作和视线帧 | [下载原始 PNG](https://raw.githubusercontent.com/yifanlu0227/DaFeiYu-codex-pet/main/spritesheet.png) |
+| `pet.json` | 宠物名称、描述、v2 规格、各行帧数和图集 SHA-256 | [读取元数据](https://raw.githubusercontent.com/yifanlu0227/DaFeiYu-codex-pet/main/pet.json) |
+| `preview.gif` | 九组动作预览 | [查看动作 GIF](https://raw.githubusercontent.com/yifanlu0227/DaFeiYu-codex-pet/main/preview.gif) |
+| `look.gif` | 十六个视线方向预览 | [查看视线 GIF](https://raw.githubusercontent.com/yifanlu0227/DaFeiYu-codex-pet/main/look.gif) |
 
-> 使用 Pets 插件，把附件中的 v2 宠物动画图集导入为我的自定义宠物，命名为「蓝色大肥鱼」，验证后创建并启用。请直接使用附件中的现有动画，不重新生成形象。
+`spritesheet.png` 是最终成品，可以直接用于安装。两个 GIF 只用于预览。保留 PNG 的透明度、尺寸和帧排列，直接验证原始文件即可，无需重新生成角色或动作。
 
-插件会在你的账号中创建宠物副本。
+### 使用哪些 skill
+
+先发现并读取当前环境可用的宠物技能，使用它所支持的安装方式：
+
+- **Pets 插件的 `work-pets:create-pet`**：将现有图集导入为用户自己的自定义宠物。沿用 skill 的验证、上传、创建和检查流程，输入使用本仓库的成品图集。
+- **Pets 插件的 `work-pets:pets`**：查询宠物列表、启用安装后的宠物，并确认当前选中状态。
+- **桌面客户端的内置 `hatch-pet`**：若当前环境提供该技能，读取它的说明并使用其支持的本机安装方式，输入仍使用现有图集。
+
+技能名称可能因客户端或插件版本不同而变化，以当前环境实际提供的技能为准。安装后确认名称为「蓝色大肥鱼」，宠物已启用，再向用户报告完成。若环境缺少宠物能力或工作区禁止安装，应明确报告具体阻碍。
 
 ## 视线动画
 
@@ -40,21 +49,6 @@ codex://pets/install?name=%E8%93%9D%E8%89%B2%E5%A4%A7%E8%82%A5%E9%B1%BC&imageUrl
 | 单帧 | 192 × 208 像素 |
 | 总帧数 | 73 |
 
-普通网页端 Upload pet 文档列出的 1536 × 1872 上传入口与本图集规格不同。请使用上述 v2 安装链接或 Pets 插件导入。[Pets 官方文档](https://learn.chatgpt.com/docs/pets)
-
-## 文件说明
-
-- `spritesheet.png`：安装所需的完整透明动画图集。
-- `preview.gif`：九组动作的循环预览。
-- `look.gif`：十六个视线方向的循环预览。
-- `install-link.txt`：桌面安装链接。
-- `pet.json`：名称、说明、规格和 SHA-256；用于说明素材，不是客户端安装清单。
-- `make-install-link.py`：根据图集 HTTPS 地址生成安装链接，只依赖 Python 标准库。
-
-如需使用其他图集托管地址，可以运行：
-
-```sh
-python3 make-install-link.py 'https://你的图集下载地址/spritesheet.png'
-```
+`pet.json` 是本仓库的素材元数据；具体安装方式由当前环境的宠物 skill 决定。
 
 图集基于用户提供的角色参考图制作。本仓库未指定素材许可。
